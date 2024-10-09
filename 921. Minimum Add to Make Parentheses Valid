@@ -1,0 +1,16 @@
+class Solution:
+    def minAddToMakeValid(self, s: str) -> int:
+        if not s:
+            return 0
+        cahrs=list(s)
+        openc=0
+        closedc=0
+        for i in cahrs:
+            if i =="(":
+                openc +=1
+            elif i ==")":
+                if openc>0:
+                    openc-=1
+                else:
+                    closedc+=1
+        return openc+closedc
