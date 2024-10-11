@@ -1,0 +1,20 @@
+class Solution:
+    def smallestChair(self, times: List[List[int]], targetFriend: int) -> int:
+        for i in range(0,len(times)):
+            times[i].append(i)
+        times.sort()
+        seats=[]
+        for i in times:
+            j=0
+            if len(seats)==0:
+                seats.append(i[1])
+            else:
+                while j<len(seats) and i[0]<seats[j]:
+                    j+=1
+                if j<len(seats):
+                    seats[j]=i[1]
+                else:
+                    seats.append(i[1])
+            if i[2]==targetFriend:
+                return j
+        return 0
