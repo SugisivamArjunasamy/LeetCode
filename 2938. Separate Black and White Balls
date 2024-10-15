@@ -1,0 +1,10 @@
+class Solution:
+    def minimumSteps(self, s: str) -> int:
+        count=0
+        black=0
+        for i in s:
+            if i=='0':
+                count+=black
+            else:
+                black+=1
+        return count
